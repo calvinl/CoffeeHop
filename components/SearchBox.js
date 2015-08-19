@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import * as SearchFilters from '../constants/SearchFilters';
 
 export default class SearchBox extends Component {
   render() {
     return (
-      <div>
-        <SearchBox />
-        <LocationList locations="[{ name: 'Ho Foods', wifi: true }, { name: 'Doppel Standard', wifi: false }]" />
-      </div>
+      <form>
+        <p>Search Filters:</p>
+        {SearchFilters.map((sf, index) =>
+          <input type="checkbox" value="{sf}" /> {sf}
+        )};
+      </form>
     );
   }
-}
+};
